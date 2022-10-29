@@ -9,6 +9,8 @@ func init() {
 	// Log as JSON instead of the default ASCII formatter.
 	// log.SetFormatter(&log.JSONFormatter{})
 	log.SetOutput(os.Stdout)
-	log.SetLevel(log.DebugLevel)
-	log.Debug("Initialized logger")
+	level, err := log.ParseLevel(os.Getenv("LOG_LEVEL"))
+	if err != nil { panic(err) }
+	log.SetLevel(level)
+	log.Debugf("Initialized logger at level '%s'", level)
 }
