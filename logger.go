@@ -1,4 +1,4 @@
-package main
+package task_wizard_common
 
 import (
 	log "github.com/sirupsen/logrus"
